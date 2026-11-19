@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090909" />
+  <title>INFINORA | A Festival Beyond Limits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Invisible SVG filters used to make the baked-in clouds slowly billow -->
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="warpA" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.013" numOctaves="2" seed="3" result="n"/>
+      <feOffset id="offA" in="n" dx="0" dy="0" result="n2"/>
+      <feDisplacementMap in="SourceGraphic" in2="n2" scale="24" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="warpB" x="-10%" y="-20%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.005 0.011" numOctaves="2" seed="9" result="n"/>
+      <feOffset id="offB" in="n" dx="0" dy="0" result="n2"/>
+      <feDisplacementMap in="SourceGraphic" in2="n2" scale="20" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <div class="page" id="page">
+    <div class="backdrop" aria-hidden="true"></div>
+
+    <!-- Poster scene: background art + animated scarf + billowing clouds -->
+    <div class="scene-pos" aria-hidden="true">
+      <div class="scene" id="scene">
+        <div class="scene-motion">
+          <img class="plate" src="images/plate.jpg" alt="" />
+          <div class="warp warp-a"></div>
+          <div class="warp warp-b"></div>
+          <div class="scarf" id="scarf"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Moving fog / clouds across the whole screen -->
+    <div class="fx" aria-hidden="true">
+      <i class="fog f-dark"></i>
+      <i class="fog f-gold"></i>
+      <i class="fog f-violet"></i>
+      <i class="fog f-low"></i>
+    </div>
+    <div class="vignette" aria-hidden="true"></div>
+    <canvas id="sparks" aria-hidden="true"></canvas>
+
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Infinora home">
+        <img class="brand-mark" src="images/compass.png" alt="" />
+        <span>INFINORA</span>
+      </a>
+
+      <div class="topline" aria-hidden="true"><span class="ln"></span><span class="gem">✦</span><span class="ln"></span></div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a class="active" href="#home">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+      </nav>
+    </header>
+
+    <main id="home" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow reveal"><i class="rule"></i>DREAM <span>✦</span> EXPLORE <span>✦</span> CONQUER<i class="rule"></i></p>
+
+        <h1 class="logo reveal-logo">
+          <img src="images/logo.png" alt="INFINORA" />
+          <img class="shine" src="images/logo.png" alt="" aria-hidden="true" />
+        </h1>
+        <p class="subtitle reveal">THE ANNUAL TECHNO-CULTURAL FEST</p>
+
+        <div class="event-meta reveal">
+          <div class="meta-item">
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+            <span>DATE TO BE ANNOUNCED</span>
+          </div>
+          <span class="meta-divider"></span>
+          <div class="meta-item">
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            <span>COLLEGE CAMPUS</span>
+          </div>
+        </div>
+
+        <span class="cta-glow reveal">
+          <a class="cta" href="events.html">
+            <span class="cta-in">
+              <span>EXPLORE EVENTS</span>
+              <svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </span>
+      </div>
+    </main>
+
+    <section class="about-strip" id="about">
+      <span class="line"></span>
+      <span class="bottom-star">✦</span>
+      <p>A FESTIVAL BEYOND LIMITS</p>
+      <span class="line"></span>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

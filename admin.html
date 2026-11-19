@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#090b12">
+  <title>Organizer Archives | INFINORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page">
+  <div class="admin-stars" aria-hidden="true"></div>
+  <aside class="sidebar" id="sidebar">
+    <a class="admin-brand" href="index.html"><img src="images/compass.png" alt=""><span>INFINORA<small>ORGANIZER ARCHIVES</small></span></a>
+    <div class="side-label">THE ARCHIVES</div>
+    <a class="side-link active" href="#overview"><span>✧</span> Overview</a>
+    <a class="side-link" href="#registrations"><span>▤</span> Registrations</a>
+    <a class="side-link" href="#events"><span>♜</span> Event summary</a>
+    <div class="sidebar-bottom"><div class="seal">✦</div><p>THE KEEPER'S ACCESS</p><a href="index.html">← Return to website</a></div>
+  </aside>
+  <main class="admin-main" id="overview">
+    <header class="admin-topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button><div><p class="eyebrow">LOYOLA COLLEGE · MATHEMATICS</p><h1>Organizer Dashboard</h1></div><div class="top-actions"><span class="preview-pill"><i></i> DATABASE ACCESS</span><span class="admin-avatar">✦</span></div></header>
+    <section class="welcome-panel"><div><p class="section-kicker">WELCOME, ORGANIZER</p><h2>Keep the magic <em>in motion.</em></h2><p>Review event activity and manage participant records from one place.</p></div><div class="welcome-mark">✧</div></section>
+    <section class="stats-grid" aria-label="Registration statistics">
+      <article class="stat-card"><span class="stat-icon">♙</span><p>TOTAL REGISTRATIONS</p><strong id="totalCount">—</strong><small>Live count after database connection</small></article>
+      <article class="stat-card"><span class="stat-icon">✦</span><p>VERIFIED PARTICIPANTS</p><strong id="verifiedCount">—</strong><small>Organizer verification</small></article>
+      <article class="stat-card"><span class="stat-icon">⌛</span><p>AWAITING REVIEW</p><strong id="pendingCount">—</strong><small>Registrations to review</small></article>
+      <article class="stat-card"><span class="stat-icon">♜</span><p>ACTIVE EVENTS</p><strong>12</strong><small>Event slots configured</small></article>
+    </section>
+    <section class="panel event-panel" id="events"><div class="panel-heading"><div><p class="section-kicker">THE TOURNAMENT BOARD</p><h2>Event overview</h2></div><span class="panel-note">12 EVENT CATEGORIES</span></div><div class="event-summary-grid" id="eventSummary"></div></section>
+    <section class="panel registrations-panel" id="registrations"><div class="panel-heading"><div><p class="section-kicker">THE PARTICIPANT LEDGER</p><h2>Registration records</h2></div><button class="gold-button" id="exportCsv">⇩ EXPORT CSV</button></div>
+      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search name, college, email or reference…"></label><select id="eventFilter" aria-label="Filter by event"><option value="all">All events</option></select><select id="statusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option value="Pending">Pending</option><option value="Verified">Verified</option></select></div>
+      <div class="table-wrap"><table><thead><tr><th>PARTICIPANT</th><th>COLLEGE</th><th>EVENT</th><th>REGISTERED</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="registrationRows"><tr><td colspan="6" class="empty-row">The participant ledger will appear here after Supabase is connected.</td></tr></tbody></table></div>
+      <div class="table-footer"><span id="recordCount">No live records loaded</span><span>DISPLAYING PREVIEW DATA ONLY</span></div>
+    </section>
+    <footer class="admin-footer">✦ &nbsp; INFINORA · A FESTIVAL BEYOND LIMITS <span>MAGIC MEETS INNOVATION</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="admin.js"></script>
+</body></html>

@@ -1,0 +1,10 @@
+const params = new URLSearchParams(window.location.search);
+const rawId = params.get("id") || "01";
+const id = /^\d{1,2}$/.test(rawId) ? String(Math.min(12, Math.max(1, Number(rawId)))).padStart(2, "0") : "01";
+const symbols = ["✧","⌘","◇","⚝","⌬","✺","⚙","△","✥","✦","☼","∞"];
+document.getElementById("eventNumber").textContent = `EVENT ${id}`;
+document.getElementById("eventTitle").textContent = `EVENT ${id} NAME TBA`;
+document.getElementById("detailSymbol").textContent = symbols[Number(id)-1];
+document.title = `Event ${id} | INFINORA`;
+const register = document.querySelector(".register-cta");
+register.href = `register.html?event=${id}`;

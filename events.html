@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070611" />
+  <title>Events | INFINORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="events.css" />
+</head>
+<body class="events-page">
+  <div class="events-bg-glow" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Infinora home">
+      <img class="brand-mark" src="images/compass.png" alt="" />
+      <span>INFINORA</span>
+    </a>
+    <div class="topline" aria-hidden="true"><span class="ln"></span><span class="gem">✦</span><span class="ln"></span></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a class="active" href="events.html">Events</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-screen" id="introScreen">
+      <video id="eventIntro" class="intro-video" autoplay muted playsinline preload="auto">
+        <source src="images/events-intro.mp4" type="video/mp4" />
+        Your browser does not support HTML video.
+      </video>
+      <div class="intro-vignette"></div>
+      <div class="intro-caption">
+        <span class="intro-kicker">THE MAGIC IS ABOUT TO BEGIN</span>
+        <h1>THE ARENA AWAITS</h1>
+        <p>12 challenges. Endless possibilities.</p>
+      </div>
+      <div class="intro-controls">
+        <button id="soundToggle" class="sound-button" type="button">♫ SOUND OFF</button>
+        <button id="skipIntro" class="skip-button" type="button">SKIP INTRO <span>→</span></button>
+      </div>
+      <div class="intro-progress"><span id="introProgress"></span></div>
+    </section>
+
+    <section class="event-catalog" id="eventCatalog" aria-hidden="true">
+      <div class="catalog-heading">
+        <p class="catalog-kicker">CHOOSE YOUR CHALLENGE</p>
+        <h1>EXPLORE OUR EVENTS</h1>
+        <p class="catalog-subtitle">Discover 12 exciting events across various domains</p>
+        <span class="catalog-rule"></span>
+      </div>
+
+      <div class="event-grid" id="eventGrid">
+        <!-- Replace each TBA name and image path when your final event details are ready. -->
+        <a class="event-card" href="event.html?id=01" data-event="01">
+          <span class="event-image"><img src="images/event-01.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">✧</span></span>
+          <span class="event-name">EVENT 01</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=02" data-event="02">
+          <span class="event-image"><img src="images/event-02.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">⌘</span></span>
+          <span class="event-name">EVENT 02</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=03" data-event="03">
+          <span class="event-image"><img src="images/event-03.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">◇</span></span>
+          <span class="event-name">EVENT 03</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=04" data-event="04">
+          <span class="event-image"><img src="images/event-04.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">⚝</span></span>
+          <span class="event-name">EVENT 04</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=05" data-event="05">
+          <span class="event-image"><img src="images/event-05.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">⌬</span></span>
+          <span class="event-name">EVENT 05</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=06" data-event="06">
+          <span class="event-image"><img src="images/event-06.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">✺</span></span>
+          <span class="event-name">EVENT 06</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=07" data-event="07">
+          <span class="event-image"><img src="images/event-07.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">⚙</span></span>
+          <span class="event-name">EVENT 07</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=08" data-event="08">
+          <span class="event-image"><img src="images/event-08.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">△</span></span>
+          <span class="event-name">EVENT 08</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=09" data-event="09">
+          <span class="event-image"><img src="images/event-09.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">✥</span></span>
+          <span class="event-name">EVENT 09</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=10" data-event="10">
+          <span class="event-image"><img src="images/event-10.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">✦</span></span>
+          <span class="event-name">EVENT 10</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=11" data-event="11">
+          <span class="event-image"><img src="images/event-11.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">☼</span></span>
+          <span class="event-name">EVENT 11</span><span class="event-status">DETAILS TBA</span>
+        </a>
+        <a class="event-card" href="event.html?id=12" data-event="12">
+          <span class="event-image"><img src="images/event-12.jpg" alt="" onerror="this.style.display='none'"><span class="placeholder-symbol">∞</span></span>
+          <span class="event-name">EVENT 12</span><span class="event-status">DETAILS TBA</span>
+        </a>
+      </div>
+      <p class="catalog-note">EVENT NAMES, DESCRIPTIONS & IMAGES — TO BE ANNOUNCED</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="events.js"></script>
+</body>
+</html>

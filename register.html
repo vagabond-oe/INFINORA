@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080711">
+<title>Registration | INFINORA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="register.css">
+</head>
+<body class="register-page">
+<div class="register-glow"></div>
+<header class="topbar">
+<a class="brand" href="index.html"><img class="brand-mark" src="images/compass.png" alt=""><span>INFINORA</span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+<nav class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="about.html">About</a><a class="active" href="events.html">Events</a></nav>
+</header>
+<main class="register-wrap">
+<a class="back-events" id="backToEvent" href="events.html">← BACK TO EVENT</a>
+<section class="form-card" id="formCard">
+<p class="form-kicker">YOUR ADVENTURE STARTS HERE</p><h1>EVENT REGISTRATION</h1>
+<p class="form-sub">Complete the details below. All fields are required.</p>
+<div class="selected-event" id="selectedEvent">SELECTED EVENT: EVENT DETAILS TBA</div>
+<form id="registrationForm">
+<label>College Name<input name="college" type="text" placeholder="Enter your college name" required></label>
+<div class="form-row">
+<label>Department<input name="department" type="text" placeholder="e.g. Computer Science" required></label>
+<label>Studying Year<select name="year" required><option value="">Select year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>Other</option></select></label>
+</div>
+<label>Participant Name<input name="participant" type="text" placeholder="Enter your full name" required></label>
+<label>WhatsApp Number<input name="whatsapp" type="tel" inputmode="tel" pattern="[0-9+() -]{8,18}" placeholder="Enter WhatsApp number" required></label>
+<label>Email Address<input name="email" type="email" placeholder="Enter email address" required></label>
+<label>Confirm Email Address<input name="confirmEmail" type="email" placeholder="Re-enter email address" required></label>
+<label class="consent"><input type="checkbox" required><span>I confirm that the information provided is correct.</span></label>
+<button class="submit-button" type="submit">SUBMIT REGISTRATION <span>↗</span></button>
+<p class="form-disclaimer">Your details will be securely submitted to the INFINORA registration database.</p>
+</form>
+</section>
+<section class="success-card" id="successCard" hidden aria-live="polite">
+  <div class="success-orbit" aria-hidden="true"><span>✦</span><i>✧</i><b>✦</b></div>
+  <p class="success-kicker">A MESSAGE FROM THE INFINORA ARCHIVES</p>
+  <h2>YOUR JOURNEY AWAITS</h2>
+  <p class="success-lead">Your registration preview has been prepared, <strong id="successName">WITCH OR WIZARD</strong>.</p>
+  <div class="letter-seal" aria-hidden="true"><span>✦</span></div>
+  <div class="preview-ticket">
+    <p class="ticket-label">REGISTRATION CONFIRMATION</p>
+    <div class="ticket-row"><span>PARTICIPANT</span><strong id="receiptName">—</strong></div>
+    <div class="ticket-row"><span>COLLEGE</span><strong id="receiptCollege">—</strong></div>
+    <div class="ticket-row"><span>EVENT</span><strong id="receiptEvent">—</strong></div>
+    <div class="ticket-row"><span>REFERENCE CODE</span><strong id="receiptRef">—</strong></div>
+    <div class="ticket-row"><span>PREPARED ON</span><strong id="receiptDate">—</strong></div>
+  </div>
+  <p class="preview-warning">Your registration has been saved to the INFINORA database. Keep this reference code for your records.</p>
+  <div class="success-actions"><button type="button" id="printReceipt" class="print-button">PRINT PREVIEW <span>✧</span></button><a href="events.html">RETURN TO EVENTS</a></div>
+</section>
+</main>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="register.js"></script>
+</body></html>

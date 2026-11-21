@@ -1,0 +1,49 @@
+INFINORA – AUTOMATIC CONFIRMATION E-MAIL + WHATSAPP GROUP LINK
+===============================================================
+What happens: a participant registers -> the row is saved in Supabase -> Supabase calls a small
+function -> the participant receives an e-mail with their details and a "Join the WhatsApp group"
+button. Nothing secret is ever placed in your website files.
+
+You need (all free): your Supabase project, a Brevo account (brevo.com), the WhatsApp group invite link(s).
+
+STEP 1 – Run the SQL
+  Supabase > SQL Editor > run supabase-setup.sql (if you already ran it before, run it again: it is safe).
+
+STEP 2 – Brevo (the e-mail sender)
+  a) Create a free account at brevo.com.
+  b) Brevo > Senders, Domains & Dedicated IPs > Senders > Add a sender. Use an e-mail you own
+     (for example your college/Gmail address) and click the verification link Brevo e-mails you.
+  c) Brevo > SMTP & API > API Keys > Generate a new API key. Copy it (you see it only once).
+
+STEP 3 – WhatsApp group link of every event
+  Each event has its own group. For each group: WhatsApp > Group info > Invite via link > Copy link
+  (looks like https://chat.whatsapp.com/AbCdEfGh123).
+  Then Supabase > Table Editor > event_groups (created by the SQL in step 1) and paste each link into
+  the whatsapp_link column of the matching event row. You can change a link there any time.
+  An event whose link is empty still sends the mail, saying the group link will be shared soon.
+
+STEP 4 – Install the Supabase CLI and deploy the function (on your laptop, inside this folder)
+  npm install -g supabase            (or: npx supabase ...)
+  supabase login
+  supabase link --project-ref YOUR_PROJECT_REF       (the ref is in your Supabase project URL)
+  supabase secrets set BREVO_API_KEY=xxxxxxxx SENDER_EMAIL=you@example.com SENDER_NAME="INFINORA" WEBHOOK_SECRET=makeUpALongRandomText
+  supabase functions deploy send-confirmation --no-verify-jwt
+
+STEP 5 – Connect the trigger
+  Supabase > Database > Webhooks > Create a new hook
+    Name: send-confirmation      Table: registrations      Events: Insert only
+    Type: Supabase Edge Functions    Function: send-confirmation
+    HTTP Headers: add   x-webhook-secret = (the same WEBHOOK_SECRET text from step 4)
+  Save.
+
+STEP 6 – Test
+  Register once on your live site with your own e-mail. The mail should arrive in a minute
+  (check Spam the first time). In Table Editor the column confirmation_sent_at is filled when it worked.
+  If nothing arrives: Supabase > Edge Functions > send-confirmation > Logs.
+
+GOOD TO KNOW
+  - Brevo's free plan allows about 300 e-mails per day.
+  - The same e-mail address cannot register twice for one event (stops duplicate mails and spam).
+  - Anyone who has the WhatsApp link can join, so the e-mail is the only place it is shown.
+  - I could not test the live e-mail sending from here (it needs your Supabase and Brevo accounts).
+    The page, form and function code were tested up to the point of calling Brevo.

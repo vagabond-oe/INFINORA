@@ -20,4 +20,26 @@
 .preview-warning{max-width:500px;margin:18px auto 0;color:#b19d7f;font-size:10px;line-height:1.7}.success-actions{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin-top:23px}.success-actions a,.print-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:43px;padding:0 17px;border:1px solid rgba(217,180,119,.55);background:rgba(35,24,13,.5);color:#f0d19a;text-decoration:none;font:10px "Cinzel",serif;letter-spacing:.1em;cursor:pointer;transition:.25s}.success-actions a:hover,.print-button:hover{background:rgba(105,69,31,.3);box-shadow:0 0 18px rgba(217,180,119,.15)}
 @keyframes formIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes sealPulse{50%{box-shadow:0 0 30px rgba(217,180,119,.25);transform:scale(1.04)}}@keyframes orbitSpin{to{transform:rotate(360deg)}}
 @media(max-width:600px){.form-row{grid-template-columns:1fr}.register-page .topbar{min-height:76px}.ticket-row{font-size:9px}}
-@media print{body{background:#fff!important;color:#111!important}.register-glow,.topbar,.back-events,.form-card,.success-orbit,.letter-seal,.success-actions,.success-kicker,.success-lead,.preview-warning{display:none!important}.register-wrap{width:100%;padding:0;margin:0}.success-card{display:block!important;margin:0;border:0;background:#fff!important;box-shadow:none;padding:20px;color:#111}.success-card:before{display:none}.success-card h2,.ticket-label,.ticket-row strong{color:#111!important}.preview-ticket{border:1px solid #777;background:#fff!important}.ticket-row span{color:#555!important}.ticket-row{border-color:#ddd!important}}
+@page{size:A4;margin:0}
+@media print{
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;background:none!important;color:#3a2410!important}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:url("images/parchment.jpg") 0 0/100% 100% no-repeat}
+.register-glow,.topbar,.back-events,.form-card,.success-orbit,.success-kicker,.success-lead,.preview-warning,.success-actions,#navLinks,.menu-toggle{display:none!important}
+.register-wrap{width:100%;max-width:none;margin:0;padding:0;animation:none}
+.success-card{display:block!important;margin:0;border:0;background:none!important;box-shadow:none;animation:none;padding:189mm 30mm 0;color:#3a2410}
+.success-card:before{display:none}
+.success-card h2{color:#3f2509!important;text-shadow:0 0 6px #f1e2bd,0 0 14px #f1e2bd;text-align:center;font-weight:700;font-size:22px;margin:0 0 2mm;letter-spacing:.12em}
+.letter-seal{display:none!important}
+.preview-ticket{max-width:none;margin:0;padding:1mm 7mm;border:0;border-radius:0;background:none!important;box-shadow:none}
+.preview-ticket:before{color:#5a3510}
+.ticket-label{color:#2a1604!important;font-size:13px;font-weight:700;border-color:rgba(60,35,10,.7);padding-bottom:2mm;margin-bottom:1mm;text-shadow:0 0 4px #f6e8c8,0 0 9px #f6e8c8,0 0 14px #f6e8c8}
+.ticket-row{border-color:rgba(60,35,10,.55)!important;font-size:12.5px;padding:1.7mm 0}
+.ticket-row span{color:#3b2208!important;font-weight:700;text-shadow:0 0 4px #f6e8c8,0 0 9px #f6e8c8,0 0 14px #f6e8c8}
+.ticket-row strong{color:#160a01!important;font-weight:800;text-shadow:0 0 4px #f6e8c8,0 0 9px #f6e8c8,0 0 14px #f6e8c8}
+}
+
+/* Math Bid extra fields + hidden elements must really hide, even inside grid/flex rows */
+#mathBidFields[hidden],.ticket-row[hidden],.form-error[hidden]{display:none}
+.form-error{margin:0;padding:11px 13px;border:1px solid rgba(190,80,60,.6);background:rgba(120,30,20,.18);color:#f0b8a8;font-size:12px;line-height:1.6;text-align:center}
+.submit-button:disabled{opacity:.6;cursor:wait;transform:none;box-shadow:none}

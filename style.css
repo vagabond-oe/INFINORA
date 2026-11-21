@@ -279,11 +279,10 @@ body {
 @media (max-width: 700px) {
   .scene { margin-left: calc((100vw - var(--scene-w)) * .2); }
   .scene-pos { justify-content: flex-start; }
-  .topbar { min-height: 78px; padding: 16px 28px; }
+  .topbar { min-height: 78px; padding: 16px 28px; justify-content: space-between; }
   .brand { font-size: 16px; gap: 10px; }
   .brand-mark { height: 38px; }
   .topline { display: none; }
-  .topbar { justify-content: space-between; }
   .menu-toggle {
     display: flex; flex-direction: column; gap: 7px;
     border: 0; background: transparent; padding: 10px; z-index: 12; cursor: pointer;

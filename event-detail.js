@@ -16,9 +16,17 @@ const events = {
     title: "MATH TUNE",
     subtitle: "A Symphony of Mathematical Magic",
     intro: "Enter the enchanted music chamber, where melodies meet mathematical mysteries. Let rhythm, logic and numerical harmony weave a spell that transforms mathematics into an extraordinary symphony.",
-    about: "The MathTune event information is retained from the existing event listing.",
-    eligibility: "Please refer to the existing MathTune eligibility details.",
-    rules: ["Please refer to the existing MathTune rules and description."],
+    about: "Songs inspired by the theme INFINORA - Infinite Aura are highly encouraged. Participants are encouraged to bring and use their own musical instruments.",
+    eligibility: "Only one team per shift per college is permitted. Each team must have a minimum of 4 and a maximum of 6 members.",
+    rules: ["Only one team per shift per college is permitted, with a minimum of 4 and a maximum of 6 members per team.",
+    "Karaoke is strictly prohibited. Participants are encouraged to bring and use their own musical instruments.",
+    "Each team will be given 1 minute of preparation time on stage.",
+    "The performance duration must be between 2 and 3 minutes. Exceeding the time limit will result in a deduction of points.",
+    "Songs inspired by the theme INFINORA - Infinite Aura are highly encouraged.",
+    "Lyrics must be appropriate and free from any form of vulgarity or offensive content.",
+    "Participants must report to the venue 15 minutes prior to their scheduled performance.",
+    "Any form of misconduct or violation of the rules will lead to disqualification.",
+    "The judges' decision will be final and binding."],
     preserveExisting: true
   },
   "02": {
@@ -149,7 +157,7 @@ const events = {
     organizer: "Vignesh – 6382371578",
     time: "11:30 AM",
     venue: "JF",
-    note: "The supplied details state both a 10:30 AM game start and an 11:30 AM event time. Please confirm the correct time before publication."
+    note: "  "
   },
   "10": {
     title: "MR./MS. INFINORA’26 – TITLE EVENT",

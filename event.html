@@ -6,7 +6,7 @@
   <title>Event Details | INFINORA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="event-detail.css">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="event-detail.css?v=20261121-info4">
 </head>
 <body class="detail-page">
   <div class="detail-glow"></div>
@@ -20,24 +20,37 @@
   <main class="detail-wrap">
     <a class="back-events" href="events.html">← BACK TO ALL EVENTS</a>
     <section class="detail-hero">
-      <div class="detail-art" id="detailArt"><span id="detailSymbol">✧</span></div>
+      <div class="detail-art" id="detailArt" aria-label="Event preview media"></div>
       <div class="detail-copy">
         <p class="detail-kicker">INFINORA • EVENT FILE</p>
         <p class="event-number" id="eventNumber">EVENT 01</p>
-        <h1 id="eventTitle">EVENT NAME TBA</h1>
-        <p class="detail-intro">The challenge awaits. Full event information will be revealed soon.</p>
-        <span class="detail-badge">EVENT DETAILS — TBA</span>
+        <h1 id="eventTitle">EVENT NAME</h1>
+        <p class="detail-subtitle" id="eventSubtitle"></p>
+        <p class="detail-intro" id="eventIntro"></p>
         <a class="register-cta" href="register.html">REGISTER FOR THIS EVENT <span>↗</span></a>
       </div>
     </section>
 
-    <section class="detail-panels">
-      <article class="info-panel"><span class="panel-icon">✦</span><h2>ABOUT THE EVENT</h2><p>Event description will be announced soon.</p></article>
-      <article class="info-panel"><span class="panel-icon">♜</span><h2>ELIGIBILITY</h2><p>Eligibility criteria: <strong>To Be Announced</strong>.</p></article>
-      <article class="info-panel"><span class="panel-icon">⚖</span><h2>RULES & GUIDELINES</h2><p>Rules and guidelines: <strong>To Be Announced</strong>.</p></article>
+    <section class="detail-panels" id="detailPanels">
+      <article class="info-panel"><h2>ABOUT THE EVENT</h2><p>Details will be announced soon.</p></article>
+      <article class="info-panel"><h2>ELIGIBILITY</h2><p>To Be Announced.</p></article>
+      <article class="info-panel wide"><h2>RULES &amp; GUIDELINES</h2><p>To Be Announced.</p></article>
+    </section>
+
+    <!-- Static INFO fallback: stays visible even if event-detail.js fails to load. -->
+    <section class="detail-panels info-fallback-wrap" aria-label="Event information">
+      <article class="info-panel event-info-panel">
+        <h2>INFO</h2>
+        <dl class="event-info-list">
+          <div class="event-info-row"><dt>Timing</dt><dd>TBA</dd></div>
+          <div class="event-info-row"><dt>Venues</dt><dd>TBA</dd></div>
+          <div class="event-info-row"><dt>Organizer name</dt><dd>TBA</dd></div>
+          <div class="event-info-row"><dt>Mobile number</dt><dd>TBA</dd></div>
+        </dl>
+      </article>
     </section>
     <p class="detail-footnote">Official event information will be updated by the INFINORA organising team.</p>
   </main>
-  <script src="script.js"></script><script src="event-detail.js"></script>
+  <script src="script.js"></script><script src="event-detail.js?v=20261121-info4"></script>
 </body>
 </html>

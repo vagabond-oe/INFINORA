@@ -13,8 +13,8 @@ const eventMedia = {
 
 const events = {
   "01": {
-    title: "MATH TUNE",
-    subtitle: "A Symphony of Mathematical Magic",
+    title: "EXPECTO MELODICA",
+    subtitle: "Math Tune",
     intro: "Enter the enchanted music chamber, where melodies meet mathematical mysteries. Let rhythm, logic and numerical harmony weave a spell that transforms mathematics into an extraordinary symphony.",
     about: "Songs inspired by the theme INFINORA - Infinite Aura are highly encouraged. Participants are encouraged to bring and use their own musical instruments.",
     eligibility: "Only one team per shift per college is permitted. Each team must have a minimum of 4 and a maximum of 6 members.",
@@ -30,8 +30,8 @@ const events = {
     preserveExisting: true
   },
   "02": {
-    title: "QUIZ",
-    subtitle: "The Chamber of Mathematical Secrets",
+    title: "SNAPE'S INQUISITION",
+    subtitle: "Quiz",
     intro: "Beyond the doors of the ancient chamber lies a collection of enchanted questions. Only those with sharp logic, brilliant reasoning and the wisdom to unlock mathematical secrets shall emerge victorious.",
     about: "A quiz event built around basic mathematical concepts, critical thinking and logical reasoning. Prelims will be conducted depending on the number of participants. The top four qualifying teams will advance to the finals, which consist of three rounds. The final-round rules will be disclosed on the spot.",
     eligibility: "Each team must consist of 2 members. Each college may register only one team.",
@@ -44,8 +44,8 @@ const events = {
     ]
   },
   "03": {
-    title: "MATHEMATICAL PAPER PRESENTATION",
-    subtitle: "The Department of Arcane Mathematics",
+    title: "MATHNOVA",
+    subtitle: "Paper Presentation",
     intro: "Welcome to the realm of mathematical discoveries, where extraordinary minds reveal theories, uncover hidden patterns and present the mysteries of the mathematical universe. Let your knowledge become the next great magical revelation.",
     about: "Participants may present a paper on any mathematical concept or topic related to Mathematics and its applications.",
     eligibility: "Individual participation. The supplied rules do not specify a team format.",
@@ -60,8 +60,8 @@ const events = {
     ]
   },
   "04": {
-    title: "PANIC ROOM",
-    subtitle: "The Chamber of Forbidden Mysteries",
+    title: "VANISH VAULT",
+    subtitle: "Murder Mustery",
     intro: "A mysterious chamber holds secrets waiting to be uncovered. Decode hidden clues, solve enchanted mathematical puzzles and follow the trail of evidence. Only the sharpest minds can escape the mystery before time runs out.",
     about: "This team event comprises two rounds. Round 1 is a mathematical reasoning test. Shortlisted teams advance to Round 2, the Murder Mystery.",
     eligibility: "Each team must consist of 3 participants. A maximum of one team per shift, per department is allowed.",
@@ -76,8 +76,8 @@ const events = {
     ]
   },
   "05": {
-    title: "ADZAP",
-    subtitle: "The Wizarding World of Magical Advertisements",
+    title: "ADZARDRY",
+    subtitle: "Adzap",
     intro: "Prepare to unleash your creative spells! Transform ordinary products into extraordinary magical creations using mathematical expressions, imagination and theatrical brilliance. Your advertisement could become the next sensation in the wizarding marketplace.",
     about: "Teams create and enact an advertisement for a product allotted to them on the spot.",
     eligibility: "Each team must consist of a minimum of 5 and a maximum of 6 participants, per shift, per college.",
@@ -93,8 +93,8 @@ const events = {
     ]
   },
   "06": {
-    title: "SHIPWRECK",
-    subtitle: "The Sinking Ship of Magical Arguments",
+    title: " MATH-0-MANIA",
+    subtitle: "Shipwreak",
     intro: "The ship is sinking, and only the most convincing wizard can survive! Step into a battle of wit, humour and imagination. Use mathematical magic, powerful arguments and creative reasoning to prove why you deserve a place on the last lifeboat.",
     about: "Participants battle against each other through a character-based performance. Prelims will be conducted if necessary, and the top 6 participants will advance to the second round.",
     eligibility: "Individual event. A maximum of one participant per shift per college is allowed.",
@@ -108,8 +108,8 @@ const events = {
     organizer: "Boffin – 7339241948"
   },
   "07": {
-    title: "FACE PAINTING",
-    subtitle: "The Enchanted Canvas of Transfiguration",
+    title: "THE GOBLET SNITCH OF GEOMENTR",
+    subtitle: "Face painting",
     intro: "Enter the magical art chamber, where faces become enchanted canvases. Transform mathematical symbols, geometric patterns and mystical ideas into extraordinary works of art. Let every brushstroke reveal a little mathematical magic.",
     about: "An on-the-spot face-painting event for UG students. The topic will be given on the spot.",
     eligibility: "Open to all UG students. Team of 2: 1 Artist + 1 Model. The model should not paint.",
@@ -124,8 +124,8 @@ const events = {
     organizer: "Vijayakumar V – 6380701404"
   },
   "08": {
-    title: "MATH RANGOLI",
-    subtitle: "The Sacred Geometry of Hogwarts",
+    title: "THE GOBLET OF GEOMENTRIC MAGIC",
+    subtitle: "Math Rangoli",
     intro: "Discover the hidden magic of symmetry, geometry and mathematical patterns. Create enchanting designs inspired by the wizarding world, where every curve, angle and colour contributes to a masterpiece of mathematical artistry.",
     about: "Teams create a mathematical rangoli and explain the mathematical concepts used in their design.",
     eligibility: "Each team must consist of 3 members. One member creates the outline, while the other two may assist with colouring.",
@@ -139,8 +139,8 @@ const events = {
     organizer: "Sharon Mariya – 7604953584"
   },
   "09": {
-    title: "MATH BID",
-    subtitle: "The Goblet of Galleons",
+    title: "THE GOBLET OF GALLEONS",
+    subtitle: "Math Bid",
     intro: "Enter the grand wizarding auction, where knowledge is currency and strategy is your greatest spell. Bid for brilliant minds, compete for mysterious questions and negotiate your way through mathematical challenges. Only the wisest strategists will claim the ultimate treasure.",
     about: "The event has three rounds: Scientist Bid, Questions Bid and Box Negotiation. Teams use bidding, negotiation and strategic decision-making to progress through the game.",
     eligibility: "Each team must consist of exactly 3 participants. A maximum of one team per college/department is allowed. Students registering for The Kingdom of Arithmos must not register for any other events.",
@@ -161,7 +161,7 @@ const events = {
   },
   "10": {
     title: "MR./MS. INFINORA’26 – TITLE EVENT",
-    subtitle: "The Triwizard Tournament of Mathematical Excellence",
+    subtitle: "Title Event",
     intro: "The most prestigious magical honour awaits! Chosen representatives from the winning and runner-up teams of the three designated challenges will enter the ultimate competition. Showcase your confidence, intelligence and personality to claim the legendary title of Mr./Ms. INFINORA ’26.",
     about: "One participant from each of the Winner and Runner-up teams of the flagged events (ADZAP, SHIPWRECK and QUIZ) is eligible to participate in the MR./MS. INFINORA’26 Title Event.",
     eligibility: "The respective teams must nominate one representative. Each team can nominate only one participant, and the nominated participant must be a member of the respective winning or runner-up team. No direct registrations will be accepted. Qualification: 3 flagged events × 2 teams × 1 representative = 6 participants.",
@@ -177,8 +177,8 @@ const events = {
     time: "2:00 PM"
   },
   "11": {
-    title: "POSTER MAKING – INK AND INCANTATION",
-    subtitle: "Ink and Incantation",
+    title: " INK AND INCANTATION",
+    subtitle: " Poster Making ",
     intro: "Every great spell begins with imagination. Bring together the magic of mathematics and the artistry of the wizarding world. Turn equations into enchantments and mathematical concepts into extraordinary handmade masterpieces.",
     about: "An online poster-making event. Participants must creatively incorporate mathematical concepts into the Harry Potter theme.",
     eligibility: "Individual online event. Team-size or college limits were not specified in the supplied rules.",
@@ -192,8 +192,8 @@ const events = {
     organizer: "Juana Sharon A – 9840279609"
   },
   "12": {
-    title: "REELMAKING",
-    subtitle: "The Pensieve of Magical Memories",
+    title: "FRAMORA",
+    subtitle: "Reel Making",
     intro: "Step into the Pensieve and bring extraordinary moments back to life! Recreate legendary historical events, scientific discoveries and remarkable inventions through the magic of storytelling, acting and visual imagination. Let your creation become a memory worth preserving.",
     about: "An online reel-making event. The reel must recreate a famous historical event, scientific discovery, invention or significant incident through acting and visual storytelling rather than simply explaining it.",
     eligibility: "Online event. The supplied rules do not specify a team-size limit.",

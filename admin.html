@@ -18,22 +18,51 @@
     <div class="sidebar-bottom"><div class="seal">✦</div><p>THE KEEPER'S ACCESS</p><a href="index.html">← Return to website</a></div>
   </aside>
   <main class="admin-main" id="overview">
-    <header class="admin-topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button><div><p class="eyebrow">LOYOLA COLLEGE · MATHEMATICS</p><h1>Organizer Dashboard</h1></div><div class="top-actions"><span class="preview-pill"><i></i> FRONTEND PREVIEW</span><span class="admin-avatar">✦</span></div></header>
+    <header class="admin-topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button><div><p class="eyebrow">LOYOLA COLLEGE · MATHEMATICS</p><h1>Organizer Dashboard</h1></div><div class="top-actions"><span class="preview-pill"><i></i> LIVE SUPABASE</span><span class="admin-avatar">✦</span></div></header>
     <section class="welcome-panel"><div><p class="section-kicker">WELCOME, ORGANIZER</p><h2>Keep the magic <em>in motion.</em></h2><p>Review event activity and manage participant records from one place.</p></div><div class="welcome-mark">✧</div></section>
+    <section class="panel content-manager-panel" id="eventContentManager">
+      <div class="panel-heading"><div><p class="section-kicker">PUBLIC EVENT INFORMATION</p><h2>Manage Complete Event Information</h2></div><span class="panel-note">SEPARATE FROM REGISTRATIONS</span></div>
+      <p class="content-manager-intro">Edit every public event detail here. Saved changes appear automatically on the corresponding event page. Registration records remain separate.</p>
+      <form id="eventContentLoginForm" class="content-login-form">
+        <label>Organizer email<input id="contentAdminEmail" type="email" autocomplete="username" required placeholder="Organizer email"></label>
+        <label>Password<input id="contentAdminPassword" type="password" autocomplete="current-password" required placeholder="Password"></label>
+        <button class="gold-button" type="submit" id="contentAdminLogin">SIGN IN TO EDIT</button>
+      </form>
+      <div id="eventContentEditor" class="content-editor" hidden>
+        <div class="content-editor-top"><span id="contentAdminIdentity"></span><button type="button" class="content-signout" id="contentAdminSignOut">SIGN OUT</button></div>
+        <label class="content-field">Select event<select id="contentEventSelect"></select></label>
+        <div class="event-edit-grid">
+          <label class="content-field">Event title<input id="contentTitle" type="text" maxlength="180"></label>
+          <label class="content-field">Subtitle<input id="contentSubtitle" type="text" maxlength="240"></label>
+          <label class="content-field">Event time<input id="contentTime" type="text" maxlength="120" placeholder="e.g. 10:00 AM"></label>
+          <label class="content-field">Venue<input id="contentVenue" type="text" maxlength="180" placeholder="TBA"></label>
+          <label class="content-field">Organizer name<input id="contentOrganizerName" type="text" maxlength="120"></label>
+          <label class="content-field">Organizer phone number<input id="contentOrganizerPhone" type="tel" maxlength="30"></label>
+        </div>
+        <label class="content-field">Short introduction<textarea id="contentIntro" rows="2" maxlength="1000"></textarea></label>
+        <label class="content-field">About the event<textarea id="contentAbout" rows="4" maxlength="4000"></textarea></label>
+        <label class="content-field">Eligibility<textarea id="contentEligibility" rows="3" maxlength="2500"></textarea></label>
+        <label class="content-field">Rules &amp; Guidelines <small>Enter one rule per line. Each line becomes a separate bullet.</small><textarea id="contentRules" rows="9" maxlength="12000"></textarea></label>
+        <label class="content-field">Important Note<textarea id="contentImportantNote" rows="3" maxlength="2000" placeholder="TBA"></textarea></label>
+        <div class="content-save-row"><button class="gold-button" type="button" id="saveEventContent">SAVE ALL EVENT CHANGES</button><span id="eventContentStatus" role="status" aria-live="polite">Sign in to manage event details.</span></div>
+      </div>
+      <p class="content-manager-footnote">Only organizer accounts explicitly authorized in Supabase can save changes. Public visitors can only view this information.</p>
+    </section>
     <section class="stats-grid" aria-label="Registration statistics">
-      <article class="stat-card"><span class="stat-icon">♙</span><p>TOTAL REGISTRATIONS</p><strong id="totalCount">—</strong><small>Live count after database connection</small></article>
-      <article class="stat-card"><span class="stat-icon">✦</span><p>VERIFIED PARTICIPANTS</p><strong id="verifiedCount">—</strong><small>Organizer verification</small></article>
+      <article class="stat-card"><span class="stat-icon">♙</span><p>TOTAL REGISTRATIONS</p><strong id="totalCount">—</strong><small>Live records after organizer sign-in</small></article>
+      <article class="stat-card"><span class="stat-icon">✦</span><p>VERIFIED REGISTRATIONS</p><strong id="verifiedCount">—</strong><small>Organizer status</small></article>
       <article class="stat-card"><span class="stat-icon">⌛</span><p>AWAITING REVIEW</p><strong id="pendingCount">—</strong><small>Registrations to review</small></article>
       <article class="stat-card"><span class="stat-icon">♜</span><p>ACTIVE EVENTS</p><strong>12</strong><small>Event slots configured</small></article>
     </section>
     <section class="panel event-panel" id="events"><div class="panel-heading"><div><p class="section-kicker">THE TOURNAMENT BOARD</p><h2>Event overview</h2></div><span class="panel-note">12 EVENT CATEGORIES</span></div><div class="event-summary-grid" id="eventSummary"></div></section>
     <section class="panel registrations-panel" id="registrations"><div class="panel-heading"><div><p class="section-kicker">THE PARTICIPANT LEDGER</p><h2>Registration records</h2></div><button class="gold-button" id="exportCsv">⇩ EXPORT CSV</button></div>
-      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search name, college, email or reference…"></label><select id="eventFilter" aria-label="Filter by event"><option value="all">All events</option></select><select id="statusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option value="Pending">Pending</option><option value="Verified">Verified</option></select></div>
-      <div class="table-wrap"><table><thead><tr><th>PARTICIPANT</th><th>COLLEGE</th><th>EVENT</th><th>REGISTERED</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="registrationRows"><tr><td colspan="6" class="empty-row">The participant ledger will appear here after Supabase is connected.</td></tr></tbody></table></div>
-      <div class="table-footer"><span id="recordCount">No live records loaded</span><span>DISPLAYING PREVIEW DATA ONLY</span></div>
+      <div class="toolbar"><button class="gold-button" id="refreshRegistrations" type="button">↻ REFRESH</button><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search name, college, email or reference…"></label><select id="eventFilter" aria-label="Filter by event"><option value="all">All events</option></select><select id="statusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option value="Pending">Pending</option><option value="Verified">Verified</option></select></div>
+      <div class="table-wrap"><table><thead><tr><th>PARTICIPANT</th><th>COLLEGE</th><th>EVENT</th><th>REGISTERED</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="registrationRows"><tr><td colspan="6" class="empty-row">Sign in with an authorized organizer account to load live registrations.</td></tr></tbody></table></div>
+      <div class="table-footer"><span id="recordCount">No live records loaded</span><span>LIVE REGISTRATION DATABASE</span></div>
     </section>
     <footer class="admin-footer">✦ &nbsp; INFINORA · A FESTIVAL BEYOND LIMITS <span>MAGIC MEETS INNOVATION</span></footer>
   </main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/dist/umd/supabase.min.js"></script>
+  <script src="supabase-config.js"></script><script src="event-defaults.js?v=20261125-admin1"></script><script src="admin.js?v=20261125-live1"></script><script src="event-content-admin.js?v=20261125-live1"></script>
 </body></html>

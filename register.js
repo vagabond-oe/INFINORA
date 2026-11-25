@@ -2,10 +2,10 @@ const params = new URLSearchParams(location.search);
 const raw = params.get("event") || "01";
 const eventId = /^\d{1,2}$/.test(raw) ? String(Math.min(12, Math.max(1, Number(raw)))).padStart(2, "0") : "01";
 const eventNames = {
-  "01": "MATH TUNE", "02": "QUIZ", "03": "MATHEMATICAL PAPER PRESENTATION", "04": "PANIC ROOM",
-  "05": "ADZAP", "06": "SHIPWRECK", "07": "FACE PAINTING", "08": "MATH RANGOLI",
+  "01": "OPERATION HOGWARTS", "02": "QUIZ", "03": "PAPER PRESENTATION", "04": "MURDER MYSTERY",
+  "05": "ADZARDRY", "06": "SHIPWRECK", "07": "FACE PAINTING", "08": "MATH RANGOLI",
   "09": "MATH BID", "10": "MR./MS. INFINORA’26 – TITLE EVENT",
-  "11": "POSTER MAKING – INK AND INCANTATION", "12": "REELMAKING"
+  "11": "POSTER MAKING", "12": "REELMAKING"
 };
 const eventLabel = `EVENT ${eventId} — ${eventNames[eventId] || "NAME TBA"}`;
 document.getElementById("selectedEvent").textContent = `SELECTED EVENT: ${eventLabel}`;

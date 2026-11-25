@@ -60,7 +60,7 @@ window.INFINORA_EVENT_DEFAULTS = {
   },
   "04": {
     "title": "VANISH VAULT",
-    "subtitle": "Panic Room",
+    "subtitle": "Murder Mystery",
     "organizer": "Balamurugan S – 8248477390",
     "time": "11:00 AM",
     "intro": "Solve mathematical reasoning challenges and uncover the mystery inside the panic room.",

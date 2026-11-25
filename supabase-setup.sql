@@ -10,6 +10,8 @@ create table if not exists public.registrations (
   department       text not null,
   study_year       text not null,
   participant_name text not null,
+  shift            text,
+  participants     jsonb not null default '[]'::jsonb,
   whatsapp         text not null,
   email            text not null,
   fictional_name   text,   -- Event 09 (Math Bid) only
@@ -41,6 +43,8 @@ select
   college            as "College",
   department         as "Department",
   study_year         as "Year",
+  shift              as "Shift",
+  participants       as "Team Participants (JSON)",
   whatsapp           as "WhatsApp",
   email              as "Email",
   reference_code     as "Reference",
@@ -87,3 +91,15 @@ insert into public.event_groups (event_id, event_name) values
   ('09','MATH BID'),('10','MR./MS. INFINORA 26 - TITLE EVENT'),
   ('11','POSTER MAKING - INK AND INCANTATION'),('12','REELMAKING')
 on conflict (event_id) do nothing;
+
+
+-- v7: PRIVATE REGISTRATION PDF STORAGE
+-- PDFs contain personal information, so keep this bucket PRIVATE.
+-- The Edge Function uses the service-role key to upload PDFs and create
+-- time-limited signed download links for the confirmation email.
+alter table public.registrations
+  add column if not exists registration_pdf_path text;
+
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('registration-pdfs', 'registration-pdfs', false, 5242880, array['application/pdf'])
+on conflict (id) do update set public = false;

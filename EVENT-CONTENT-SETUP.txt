@@ -1,0 +1,38 @@
+INFINORA — EVENT CONTENT EDITOR
+
+WHAT IS INCLUDED
+- Organizer Dashboard (admin.html) has a separate Venue + Important Note editor.
+- Choose any of the 12 events, edit the two fields, and save.
+- Public event detail pages (event.html?id=01 through ?id=12) read the saved values from Supabase.
+- Blank values display as TBA. Refresh the public event page after saving to see the latest values.
+
+CONNECTED SUPABASE PROJECT
+- Project ref: vinxjahrdrahhzweyomm
+- Tables event_content (12 event rows) and event_content_admins (1 authorized organizer) already exist in this project.
+- The organizer account previously authorized for this project is already allowlisted. Sign in with that existing Supabase Auth email and password.
+- Do not rerun the setup SQL against the live project or create another organizer account unless you intentionally want a new admin.
+
+HOW TO USE
+1. Deploy the website files in this ZIP to the same hosting location as the current INFINORA website.
+2. Open admin.html.
+3. In “Manage Venue & Important Note”, sign in with the already-authorized organizer account.
+4. Select an event, edit Venue and/or Important Note, then click SAVE EVENT INFORMATION.
+5. Open that event's public detail page and refresh to verify the saved values.
+
+ADDING ANOTHER ORGANIZER (OPTIONAL)
+1. Create the additional user in Supabase Authentication > Users.
+2. Copy that user's UUID.
+3. In SQL Editor, run:
+
+   insert into public.event_content_admins (user_id)
+   values ('PASTE-AUTH-USER-UUID-HERE');
+
+SECURITY + SCOPE
+- Public visitors can read event_content. Only UUIDs listed in event_content_admins can insert/update/delete event content.
+- The website uses only the public publishable key. Never place a service-role or secret key in frontend files.
+- Registration records, event_groups / WhatsApp links, the send-confirmation Edge Function, confirmation emails, and registration PDF handling are not modified by this editor.
+- The existing Organizer Dashboard registration ledger is still labelled as a frontend preview and contains demo records; this change does not turn that separate dashboard section into live registration management.
+
+
+TEAM REGISTRATION DATABASE UPDATE
+Run team-registration-migration.sql once in Supabase SQL Editor before publishing this registration form. It adds the shift and participants columns without changing existing registration, email, WhatsApp or PDF records.

@@ -1,8 +1,9 @@
 INFINORA – AUTOMATIC CONFIRMATION E-MAIL + WHATSAPP GROUP LINK
 ===============================================================
-What happens: a participant registers -> the row is saved in Supabase -> Supabase calls a small
-function -> the participant receives an e-mail with their details and a "Join the WhatsApp group"
-button. Nothing secret is ever placed in your website files.
+What happens: a participant registers -> the row is saved in Supabase -> Supabase calls the Edge Function ->
+the function creates a personalized A4 PDF, stores it in a PRIVATE Supabase Storage bucket,
+creates a 30-day signed download link, and sends an e-mail with the WhatsApp and PDF buttons.
+The PDF includes Participant, College, Department, Year, Event, Reference ID and Prepared On.
 
 You need (all free): your Supabase project, a Brevo account (brevo.com), the WhatsApp group invite link(s).
 
@@ -23,6 +24,8 @@ STEP 3 – WhatsApp group link of every event
   An event whose link is empty still sends the mail, saying the group link will be shared soon.
 
 STEP 4 – Install the Supabase CLI and deploy the function (on your laptop, inside this folder)
+  The updated function imports pdf-lib and includes the existing images/parchment.jpg artwork in its source.
+  Deploy from the project folder that contains the supabase/ directory.
   npm install -g supabase            (or: npx supabase ...)
   supabase login
   supabase link --project-ref YOUR_PROJECT_REF       (the ref is in your Supabase project URL)
@@ -46,4 +49,5 @@ GOOD TO KNOW
   - The same e-mail address cannot register twice for one event (stops duplicate mails and spam).
   - Anyone who has the WhatsApp link can join, so the e-mail is the only place it is shown.
   - I could not test the live e-mail sending from here (it needs your Supabase and Brevo accounts).
-    The page, form and function code were tested up to the point of calling Brevo.
+    The page and form logic are included in this project. Live Supabase Storage, PDF generation,
+  Edge Function deployment and Brevo delivery must be tested in your own Supabase/Brevo project.

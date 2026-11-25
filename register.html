@@ -21,14 +21,14 @@
 <div class="selected-event" id="selectedEvent">SELECTED EVENT: EVENT DETAILS TBA</div>
 <form id="registrationForm">
 <label>College Name<input name="college" type="text" placeholder="Enter your college name" required></label>
+<label>Department<input name="department" type="text" placeholder="e.g. Computer Science" required></label>
 <div class="form-row">
-<label>Department<input name="department" type="text" placeholder="e.g. Mathematics" required></label>
-<label>Studying Year<select name="year" required><option value="">Select year</option><option>1st Year UG</option><option>2nd Year UG</option><option>3rd Year UG</option><option>4th Year UG</option><option>1st Year PG</option><option>2nd Year PG</option><option>Other</option></select></label>
+<label>Shift<select name="shift" required><option value="">Select shift</option><option value="Shift I">Shift I</option><option value="Shift II">Shift II</option></select></label>
+<label>Studying Year<select name="year" required><option value="">Select year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>Other</option></select></label>
 </div>
-<label>Participant Name<input name="participant" type="text" placeholder="Enter your full name" required></label>
-<div class="form-row" id="mathBidFields" hidden>
-<label>Fictional Name<input name="fictionalName" type="text" maxlength="60" placeholder="Enter your fictional name"></label>
-<label>Character<select name="character"><option value="">Select character</option><option>The Knight</option><option>The Master</option><option>The Scout</option></select></label>
+<div id="participantsSection" class="participants-section">
+  <div class="participants-heading"><span>PARTICIPANT DETAILS</span><small id="participantHint">Enter participant name</small></div>
+  <div id="participantFields"></div>
 </div>
 <label>WhatsApp Number<input name="whatsapp" type="tel" inputmode="tel" pattern="[0-9+() -]{8,18}" placeholder="Enter WhatsApp number" required></label>
 <label>Email Address<input name="email" type="email" placeholder="Enter email address" required></label>
@@ -49,15 +49,18 @@
     <p class="ticket-label" id="ticketLabel">REGISTRATION PREVIEW</p>
     <div class="ticket-row"><span>PARTICIPANT</span><strong id="receiptName">—</strong></div>
     <div class="ticket-row"><span>COLLEGE</span><strong id="receiptCollege">—</strong></div>
+    <div class="ticket-row"><span>DEPARTMENT</span><strong id="receiptDepartment">—</strong></div>
+    <div class="ticket-row"><span>YEAR</span><strong id="receiptYear">—</strong></div>
+    <div class="ticket-row"><span>SHIFT</span><strong id="receiptShift">—</strong></div>
+    <div class="ticket-row"><span>PARTICIPANTS</span><strong id="receiptParticipants">—</strong></div>
     <div class="ticket-row"><span>EVENT</span><strong id="receiptEvent">—</strong></div>
-    <div class="ticket-row" id="receiptFictionalRow" hidden><span>FICTIONAL NAME</span><strong id="receiptFictional">—</strong></div>
-    <div class="ticket-row" id="receiptCharacterRow" hidden><span>CHARACTER</span><strong id="receiptCharacter">—</strong></div>
-    <div class="ticket-row"><span>PREVIEW REFERENCE</span><strong id="receiptRef">—</strong></div>
+    
+    <div class="ticket-row"><span>REFERENCE ID</span><strong id="receiptRef">—</strong></div>
     <div class="ticket-row"><span>PREPARED ON</span><strong id="receiptDate">—</strong></div>
   </div>
   <p class="preview-warning" id="previewWarning">This is only a visual preview. Your information has NOT been sent or saved, and this reference is NOT an official registration ID. Real registration confirmation will be enabled after Supabase is connected.</p>
-  <div class="success-actions"><button type="button" id="printReceipt" class="print-button">PRINT PREVIEW <span>✧</span></button><a href="events.html">RETURN TO EVENTS</a></div>
+  <div class="success-actions"><button type="button" id="printReceipt" class="print-button">PRINT / SAVE PDF <span>✧</span></button><a href="events.html">RETURN TO EVENTS</a></div>
 </section>
 </main>
-<script src="script.js"></script><script src="supabase-config.js"></script><script src="register.js?v=2"></script>
+<script src="script.js"></script><script src="supabase-config.js"></script><script src="register.js?v=4"></script>
 </body></html>

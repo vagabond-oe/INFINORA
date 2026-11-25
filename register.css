@@ -43,3 +43,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:url("images
 #mathBidFields[hidden],.ticket-row[hidden],.form-error[hidden]{display:none}
 .form-error{margin:0;padding:11px 13px;border:1px solid rgba(190,80,60,.6);background:rgba(120,30,20,.18);color:#f0b8a8;font-size:12px;line-height:1.6;text-align:center}
 .submit-button:disabled{opacity:.6;cursor:wait;transform:none;box-shadow:none}
+
+/* Team registration fields */
+.participants-section{display:grid;gap:12px}.participants-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:9px;border-bottom:1px solid rgba(217,180,119,.3);color:#e6bd7e;font:11px "Cinzel",serif;letter-spacing:.12em}.participants-heading small{font:10px "Manrope",sans-serif;color:#b7a487;letter-spacing:0;text-align:right}.participant-card{display:grid;gap:12px;padding:15px;border:1px solid rgba(217,180,119,.25);background:rgba(8,6,5,.4)}.participant-card-title{color:#e6bd7e;font:11px "Cinzel",serif;letter-spacing:.13em}.math-bid-participant-row{margin-top:2px}

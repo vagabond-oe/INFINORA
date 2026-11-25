@@ -1,0 +1,63 @@
+INFINORA REGISTRATION UPDATE — WHAT CHANGED
+
+1. The registration form already collected Department and Studying Year and saved them as
+   registrations.department and registrations.study_year. Those existing fields are retained.
+2. The website success/receipt preview now also displays Department and Year.
+3. The website print action is labelled PRINT / SAVE PDF. In the browser print dialog choose
+   "Save as PDF" to save the A4 parchment receipt. The Return to Events option remains.
+4. The Edge Function now generates a personalized A4 PDF using the existing images/parchment.jpg
+   artwork, uploads it to a PRIVATE Supabase Storage bucket, creates a 30-day signed URL, and
+   emails a Download Registration PDF button directly below the WhatsApp button.
+5. The email details now include Department, Year, Reference ID and Prepared On.
+6. SQL adds registration_pdf_path and creates the private registration-pdfs bucket.
+
+DEPLOYMENT
+- Run the updated supabase-setup.sql in Supabase SQL Editor.
+- Redeploy: supabase functions deploy send-confirmation --no-verify-jwt
+- Keep the existing BREVO_API_KEY, SENDER_EMAIL, SENDER_NAME and WEBHOOK_SECRET secrets.
+- Keep the Database Webhook header x-webhook-secret unchanged.
+- Test with a new registration. Existing registrations will not automatically receive PDFs.
+- The signed PDF download link expires after 30 days.
+
+IMPORTANT
+The registration PDF is personal data. The Storage bucket is intentionally PRIVATE; do not switch
+it to public. The Edge Function uses the Supabase service-role key to upload and sign each file.
+
+
+TEAM REGISTRATION UPDATE
+- Registration now supports multiple named participants for team events.
+- Shift I / Shift II is collected after Department.
+- Math Bid collects each of the three participants, each fictional name, and each character.
+- Before deploying, run team-registration-migration.sql once in Supabase SQL Editor.
+- Existing registrations, confirmation emails, WhatsApp links and PDF storage remain in place; the confirmation Edge Function now includes shift and team-member details.
+
+LIVE ADMIN + TWO-PAGE TEAM PDF UPDATE (25 NOV 2026)
+-------------------------------------------------
+1. Removed all seven hard-coded demo registrations from admin.js. The dashboard no longer shows invented sample people.
+2. The admin dashboard now reads real rows from public.registrations after an authorized organizer signs in. It shows every team member name, college, department, year, shift, event, reference and status; supports search, filters, CSV export and status verification.
+3. Enabled Supabase Realtime for public.registrations. New registrations and status changes refresh the open organizer dashboard automatically (manual REFRESH remains available).
+4. Organizer editing now covers event title, subtitle, short introduction, About, Eligibility, Rules (one rule per line), time, venue, organizer name, organizer phone number and Important Note. Saved values are loaded by the public event detail page.
+5. The registration PDF generator now creates exactly two A4 pages: page 1 contains registration/team summary; page 2 lists participants row by row. Math Bid page 2 additionally shows each participant's fictional name and character.
+6. The Supabase schema and RLS policies have already been updated in the connected INFINORA project. Only an authorized user listed in event_content_admins can read registrations, update their status, or edit event content. Public visitors can still submit registrations and read public event content.
+
+WHAT IS ALREADY DONE IN SUPABASE
+- Added event title/subtitle/intro/about/eligibility/rules/time/organizer fields to public.event_content.
+- Added organizer-only SELECT and status UPDATE policies for public.registrations.
+- Added public.registrations to the supabase_realtime publication.
+- Verified the schema, policies and Realtime publication.
+- No registration rows were deleted.
+
+WHAT YOU MUST DO IN VS CODE BEFORE THE SITE GOES LIVE
+A. Extract this ZIP and open the INFINORA-REGI folder in VS Code. Make sure the folder you open contains index.html and the supabase folder.
+B. Replace the files in your GitHub Pages publishing root with the contents of this folder (do not upload the folder as an extra nested folder). Commit and wait for the Pages deployment to finish.
+C. In the VS Code terminal, from the INFINORA-REGI project root, run:
+   supabase --version
+   supabase login
+   supabase link --project-ref vinxjahrdrahhzweyomm
+   supabase functions deploy send-confirmation --no-verify-jwt
+   The function has its own x-webhook-secret check, so keep verify_jwt disabled as it is now. Do not change the existing BREVO_API_KEY, SENDER_EMAIL, SENDER_NAME or WEBHOOK_SECRET secrets. Never put the service-role key in website JavaScript.
+D. Check Supabase > Edge Functions > send-confirmation and confirm the new deployment is active. Keep the existing Database Webhook and its x-webhook-secret header unchanged.
+E. Test with a new team registration using an email address you control. Confirm the email arrives, the PDF downloads as two pages, page 2 lists every participant in separate rows, and the new registration appears in the admin dashboard without refreshing.
+
+IMPORTANT DATA NOTE
+The seven sample people previously shown in the admin dashboard were hard-coded frontend demo data and have been removed. The live Supabase registrations table currently contains one separate test-looking row (reference IF-REG-05-UL8JE, participant label "mhbh", college "loyola"). It has NOT been deleted because it may be a real submission. Confirm before deleting that database row.
